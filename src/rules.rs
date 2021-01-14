@@ -52,8 +52,8 @@ impl A2SClient {
         }
 
         Ok(Rules {
-            count: count,
-            rules: rules,
+            count,
+            rules,
         })
     }
 }

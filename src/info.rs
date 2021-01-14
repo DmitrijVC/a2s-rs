@@ -33,7 +33,7 @@ pub struct Info {
     pub game: String,
 
     // Steam Application ID of game.
-    pub app_id: u16,
+    pub app_id: u32,
 
     // Number of players on the server.
     pub players: u8,
@@ -167,7 +167,7 @@ impl A2SClient {
             return Err(Error::InvalidResponse);
         }
 
-        let app_id: u16;
+        let app_id: u32;
         let mut flag = 0u8;
 
         Ok(Info {
@@ -177,7 +177,7 @@ impl A2SClient {
             folder: data.read_cstring()?,
             game: data.read_cstring()?,
             app_id: {
-                app_id = data.read_u16::<LittleEndian>()?;
+                app_id = data.read_u32::<LittleEndian>()?;
 
                 app_id
             },

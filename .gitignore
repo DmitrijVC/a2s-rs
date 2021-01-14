@@ -17,3 +17,8 @@ Cargo.lock
 /target
 #**/*.rs.bk
 #Cargo.lock
+
+# IntelliJ Project files
+*.iml
+*.xml
+/.idea

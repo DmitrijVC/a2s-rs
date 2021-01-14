@@ -25,7 +25,7 @@ struct PacketFragment {
 pub struct A2SClient {
     socket: UdpSocket,
     max_size: usize,
-    app_id: u16,
+    app_id: u32,
 }
 
 impl A2SClient {
@@ -36,7 +36,7 @@ impl A2SClient {
         socket.set_write_timeout(Some(Duration::new(5, 0)))?;
 
         Ok(A2SClient {
-            socket: socket,
+            socket,
             max_size: 1400,
             app_id: 0,
         })
@@ -47,7 +47,7 @@ impl A2SClient {
         self
     }
 
-    pub fn app_id(&mut self, app_id: u16) -> &mut Self {
+    pub fn app_id(&mut self, app_id: u32) -> &mut Self {
         self.app_id = app_id;
         self
     }
